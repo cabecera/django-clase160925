@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core import views as views_core
+
+# Se importa el módulo de vistas de la app "core" con un alias (views_core).
+# Esto se hace porque el proyecto tendrá más de una aplicación (por ejemplo, "foro" y "core"),
+# y ambas contendrán un archivo views.py. Usar un alias evita ambigüedades al momento
+# de referirse a sus funciones o clases.
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views_core.index,name="index"),
+
 ]
